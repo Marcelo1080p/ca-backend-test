@@ -1,0 +1,65 @@
+# Build
+bin/
+obj/
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# MacOS
+.DS_Store
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.log
+
+# ASP.NET Core
+wwwroot/
+appsettings.Development.json
+
+# Packages
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Entity Framework
+Migrations/
+
+# Dotnet tools
+.dotnet-tools.json
+
+# Logs
+*.log
+
+# User-specific files
+*.swp
+*.swo
+
+# Others
+*.db
+*.sqlite
+
+
+.vs/
+*.user
+*.suo
+*.vsidx
+*.vssscc
+*.dbmdl
+*.bak
+bin/
+obj/
