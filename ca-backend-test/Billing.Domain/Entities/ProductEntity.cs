@@ -13,5 +13,13 @@ public class ProductEntity
         Id = id;
         Name = name;
     }
-}
 
+    private ProductEntity() { }
+
+    
+    public void UpdateName(string newName)
+    {
+        if (string.IsNullOrWhiteSpace(newName)) throw new ArgumentException("Nome do produto é obrigatório.");
+        Name = newName;
+    }
+}

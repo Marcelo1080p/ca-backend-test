@@ -1,6 +1,6 @@
 ﻿using Billing.Domain.Entities;
 
-namespace Tests.Domain.Tests;
+namespace Tests.Domain.Tests.Entities.Tests;
 
 public class CustomerTests
 {

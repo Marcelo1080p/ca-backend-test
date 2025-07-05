@@ -4,14 +4,25 @@ public class BillingEntity
 {
     public Guid Id { get; private set; }
     public string InvoiceNumber { get; private set; }
+    public Guid CustomerId { get; private set; }                
     public CustomerEntity Customer { get; private set; }
     public DateTime Date { get; private set; }
     public DateTime DueDate { get; private set; }
     public decimal TotalAmount { get; private set; }
     public string Currency { get; private set; }
-    public List<BillingLineEntity> Lines { get; private set; }
 
-    public BillingEntity(Guid id, string invoiceNumber, CustomerEntity customer, DateTime date, DateTime dueDate, string currency, List<BillingLineEntity> lines)
+    
+    private readonly List<BillingLineEntity> _lines = new();
+    public IReadOnlyCollection<BillingLineEntity> Lines => _lines.AsReadOnly();
+
+    public BillingEntity(
+        Guid id,
+        string invoiceNumber,
+        CustomerEntity customer,
+        DateTime date,
+        DateTime dueDate,
+        string currency,
+        List<BillingLineEntity> lines)
     {
         if (id == Guid.Empty) throw new ArgumentException("Id inválido.");
         if (string.IsNullOrWhiteSpace(invoiceNumber)) throw new ArgumentException("InvoiceNumber é obrigatório.");
@@ -24,16 +35,23 @@ public class BillingEntity
         Id = id;
         InvoiceNumber = invoiceNumber;
         Customer = customer;
+        CustomerId = customer.Id;
         Date = date;
         DueDate = dueDate;
         Currency = currency;
-        Lines = lines;
 
-        
-        TotalAmount = 0;
-        foreach (var line in Lines)
+        foreach (var line in lines)
         {
-            TotalAmount += line.Subtotal;
+            AddLine(line);
         }
+    }
+
+    protected BillingEntity() { }
+
+    public void AddLine(BillingLineEntity line)
+    {
+        if (line == null) throw new ArgumentNullException(nameof(line));
+        _lines.Add(line);
+        TotalAmount += line.Subtotal;
     }
 }

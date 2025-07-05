@@ -1,7 +1,7 @@
 ﻿using Billing.Domain.Entities;
 using FluentAssertions;
 
-namespace Tests.Domain.Tests
+namespace Tests.Domain.Tests.Entities.Tests
 {
     public class BillingLineTests
     {
