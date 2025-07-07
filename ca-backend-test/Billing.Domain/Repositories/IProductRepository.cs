@@ -9,4 +9,6 @@ public interface IProductRepository
     Task AddAsync(ProductEntity product);
     Task UpdateAsync(ProductEntity product);
     Task DeleteAsync(ProductEntity product);
+
+    Task<bool> ExistsAsync(Guid id);
 }

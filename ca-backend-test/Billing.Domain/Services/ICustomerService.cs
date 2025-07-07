@@ -7,4 +7,6 @@ public interface ICustomerService
     Task AddAsync(CustomerEntity customer);
     Task UpdateAsync(CustomerEntity customer);
     Task DeleteAsync(CustomerEntity customer);
+
+    Task<bool> ExistsAsync(Guid id);
 }

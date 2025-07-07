@@ -38,4 +38,12 @@ public class BillingLineEntity
     }
 
     private BillingLineEntity() { }
+
+    public BillingLineEntity(Guid productId, string description, int quantity, decimal unitPrice)
+    {
+        ProductId = productId;
+        Description = description;
+        Quantity = quantity;
+        UnitPrice = unitPrice;
+    }
 }
