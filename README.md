@@ -1,56 +1,39 @@
-**Teste para vaga de Desenvolvimento Back-end .NET**
----------------------
-Criar uma API REST para gerenciar faturamento de clientes.
----------------------
-**Funcionalidades 🛠️**
+# Billing API
 
-* Customer: CRUD; Criar um cadastro do cliente com os seguintes campos:
-    * Id;
-    * Name;
-    * Email;
-    * Address;
-    * **Todos os campos são de preenchimento obrigatório.**
-* Produtos: CRUD; Criar um cadastro de produtos com os seguintes campos:
-    * Id;
-    * Nome do produto;
-    * **Todos os campos são de preenchimento obrigatório.**
-* Controle de conferência e importação de billing.
-    * Utilizar postman para consulta dos dados da API’s para criação das tabelas de billing e billingLines.
-	  * Após consulta, e criação do passo anterior, inserir no banco de dados o primeiro registro do retorno da API de billing para criação de cliente e produto através do swagger ou dataseed.
+API para gerenciamento de faturamento (billing), clientes e produtos, construída com foco em boas práticas de desenvolvimento, arquitetura limpa e testes automatizados.
 
-    * Utilizar as API’s para consumo dos dados a partir da aplicação que está criada e fazer as seguintes verificações:
-      * Se o cliente e o produto existirem, inserir o registro do billing e billingLines no DB local.
-      * Caso se o cliente existir ou só o produto existir, deve retornar um erro na aplicação informando sobre a criação do registro faltante.
-      * Criar exceptions tratando mal funcionamento ou interrupção de serviço quando API estiver fora.
-* Lista de API’s :
-	* Get https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing
-	* Get https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing/:id
-	* Post https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing
-	* Delete https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing/:id
-	* PUT https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing/:id
----------------------
-**Requisitos 💻**
+---
 
-* A aplicação deverá ser desenvolvida usando .NET a partir da versão 5+;
-* Modelagem de dados pode ser no banco de dados de sua preferência, podendo ser um banco relacional ou não relacional (mongodb, SQL Server, PostgreSQL, MySQL, etc);
-* Persistência de dados no banco deverá ser feita utilizando o Entity Framework Core;
-* O retorno da API deverá ser em formato JSON;
-* Utilizar as requisições GET, POST, PUT ou DELETE, conforme a melhor prática;
-* Criar o README do projeto descrevendo as tecnologias utilizadas, chamadas dos serviços e configurações necessário para executar a aplicação.
----------------------
-**Pontos Extras ⭐**
+## Descrição do Projeto
 
-* Desenvolvimento baseado em TDD;
-* Práticas de modelagem de projeto;
-* Criar e configurar o Swagger da API de acordo com as melhores práticas;
-* Criar uma API para extração dos dados de faturamento.
-* Sugestões serão bem vindas.
----------------------
-**Submissão do teste 📝**
+Este projeto é uma API RESTful desenvolvida para gerenciar clientes, produtos e faturas, utilizando uma arquitetura em camadas baseada no **Domain-Driven Design (DDD)**. Foi desenvolvido seguindo os princípios do **Test-Driven Development (TDD)**, garantindo maior qualidade e confiabilidade no código.
 
-Crie um fork do teste para acompanharmos o seu desenvolvimento através dos seus commits.
+---
 
----------------------
-Obrigado!
+## Arquitetura e Boas Práticas
 
-Agradecemos sua participação no teste. Boa sorte! 😄
+- **Arquitetura em Camadas:** Separação clara entre as camadas de aplicação, domínio e infraestrutura, promovendo baixo acoplamento e alta coesão.
+- **Domain-Driven Design (DDD):** Modelagem do domínio focada em entidades, repositórios e serviços, respeitando as regras de negócio.
+- **Test-Driven Development (TDD):** Desenvolvimento guiado por testes automatizados usando **xUnit**, garantindo cobertura e qualidade do código.
+- **Injeção de Dependências:** Uso do padrão para desacoplar as dependências e facilitar testes e manutenção.
+- **Tratamento centralizado de erros:** Para melhorar a consistência das respostas e facilitar o diagnóstico.
+- **Uso de DTOs:** Para separar os modelos de domínio dos modelos usados nas requisições e respostas da API.
+- **Documentação automática:** Utilização do Swagger para documentação e teste dos endpoints.
+
+---
+
+## Tecnologias Utilizadas
+
+- **.NET 8** — Plataforma principal para desenvolvimento da API.
+- **Entity Framework Core 8** — ORM para acesso ao banco de dados SQL Server.
+- **SQL Server** — Banco de dados relacional para persistência dos dados.
+- **Swagger / Swashbuckle** — Geração automática da documentação e interface para testar a API.
+- **xUnit** — Framework de testes unitários para garantir qualidade do código.
+- **Visual Studio / VS Code** — IDEs recomendadas para desenvolvimento.
+
+---
+
+## Endpoints
+
+Todos os endpoints disponíveis podem ser acessados e testados via Swagger UI na URL base do projeto
+
